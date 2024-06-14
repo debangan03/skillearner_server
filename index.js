@@ -20,7 +20,11 @@ let otpStore = {};
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://skillearner.netlify.app/', // Adjust the origin as needed
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -103,7 +107,7 @@ app.post("/forgotpassword", async (req, res) => {
     await user.save();
 
     // Generate reset link
-    const resetLink = `https://skillearner.netlify.app/reserpassword?token=${token}`;
+    const resetLink = `https://skillearner.netlify.app/reserpassword/${token}`;
 
     res.status(200).json({ resetLink });
   } catch (error) {
