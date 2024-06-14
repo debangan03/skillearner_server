@@ -1,13 +1,13 @@
 const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
-const conndb = require("../middlewire/conndb");
+const conndb = require("./middlewire/conndb");
 const bcrypt = require("bcrypt");
-const User = require("../models/User");
+const User = require("./models/User");
 const jwt = require("jsonwebtoken");
-const Course = require("../models/Course");
+const Course = require("./models/Course");
 const Razorpay = require("razorpay");
-const Order = require("../models/Order");
+const Order = require("./models/Order");
 const crypto = require("crypto");
 const bodyParser = require("body-parser");
 const instance = new Razorpay({
