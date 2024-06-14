@@ -20,11 +20,7 @@ let otpStore = {};
 const app = express();
 
 app.use(express.json());
-app.use(cors({
-  origin: 'https://skillearner.netlify.app/', // Adjust the origin as needed
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
