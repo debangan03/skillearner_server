@@ -103,7 +103,7 @@ app.post("/forgotpassword", async (req, res) => {
     await user.save();
 
     // Generate reset link
-    const resetLink = `https://skillearner.vercel.app/resetpassword/${token}`;
+    const resetLink = `http://localhost:5173/resetpassword/${token}`;
 
     res.status(200).json({ resetLink });
   } catch (error) {
